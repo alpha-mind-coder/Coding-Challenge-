@@ -1,0 +1,14 @@
+Hii guys! Lets start the THREE MONTH CHALLENGE(90 DAYS) to complete our DSA practice .
+We will be doing two things first right now focusing on completing the most frequently used patterns in DSA
+
+1. Prefix
+
+# lets do 4 to 5 questions on this pattern then will move on next pattern 
+     (right now have solved three questions on it)
+->first understood about left boundary and right boundary how its used in different problems
+->and how to use unordered_map with it which actually make prefix pattern useful in most of the questions 
+->also understood that we can do the prefix problem in its own array also without taking a new array and how its useful in most of the cases
+  // changes is made in actuall array however if want to further use the array it should not be done in same array
+
+
+## TODAY'S PROBLEMS SOLVED 
