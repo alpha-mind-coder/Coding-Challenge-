@@ -12,3 +12,49 @@ We will be doing two things first right now focusing on completing the most freq
 
 
 ## TODAY'S PROBLEMS SOLVED 
+Continuous Subarray Sum ->523
+class Solution {
+public:
+   
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> remainder_map; // {remainder: index}
+        remainder_map[0] = -1; // Remainder 0 corresponds to index -1
+        
+        int cumulative_sum = 0; 
+        for (int i = 0; i < nums.size(); i++) {
+            cumulative_sum += nums[i];
+            
+            
+            int remainder = cumulative_sum % k;
+                 
+            if (remainder_map.find(remainder) != remainder_map.end()) {
+                if (i - remainder_map[remainder] >= 2) {
+                    return true;
+                }
+            } else {
+                
+                remainder_map[remainder] = i;
+            }
+        }
+        return false; 
+    }
+};
+I was not able to understand this problem first but after seeing a hint i came to know i was thinking in right direction but was not going in depth 
+we have to use maths in it a little as we know that
+
+## (prefix[j] - prefix[i])%k == 0
+
+Is what we want in it so from this we come on 
+
+## prefix[j]%k-prefix[i]%k=0
+## prefix[j]%k = prefix[i]%k
+
+So now we need to find an element which gives same remainder as the other therefore
+->we use map for it so that will store the remainder if not present if present check the distance between their index and if satisfied return true
+
+
+## TOMMORROWS PLAN 
+->To complete this pattern type questions although i came at a question that uses this prefix pattern in binary tree structure HAVE NOT DONE THIS CONCEPT YET!!
+->To do pointers concept in C
+->To also follow up the acadameic syllabus
+
