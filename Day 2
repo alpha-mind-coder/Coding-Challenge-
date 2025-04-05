@@ -1,0 +1,48 @@
+As i mentioned yesterday we will continue are 90 DAYS challenge and its Day2 of it:-
+so we were succesful in continuing our plan i completed
+           -> the prefix pattern 
+           -> have completed our acadamic syllabus 
+           -> was not able to do pointers but will do it today 
+## TODAY'S PROBLEM SOLVED
+Find first and last position of an element ->34
+HAVE ALREADY DONE THAT BEFORE BUT AS I WAS DOING RECURSION SO DID IT WITH RECURSION FOR PRACTICE
+class Solution {
+public:
+int res =-1;
+    int binarysearch(vector<int>& nums, int target,bool flag,int s,int e){
+        int mid=s+(e-s)/2;
+        if(s>e){
+            return res;}
+
+        if(nums[mid]>target){
+            return binarysearch(nums, target,flag,s,mid-1);
+        }    
+        
+        if(nums[mid]<target){
+            return binarysearch(nums, target,flag,mid+1,e);
+        }  
+       
+           res=mid;
+            if(flag){
+                return binarysearch(nums, target,flag,s,mid-1);
+            }
+            else{
+                 return binarysearch(nums, target,flag,mid+1,e);
+            }
+       return res;
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int leftmost = binarysearch(nums,target,true,0,nums.size()-1);
+        int rightmost = binarysearch(nums,target,false,0,nums.size()-1);
+        return {leftmost,rightmost};
+    }
+};
+Have also solved one another problem will add it soon
+
+## TOMMOROWS PLAN
+->To continue with pointers
+->To continue acadamic syllabus
+->To go in depth of recursion by doing the some previous question like pivot index that we need in binary search through recursion method
+
+## THIS WILL HELP ME REVISE THE PREVIOUS TOPICS AS WELL AND WILL ALSO MAKE ME BETTER IN RECURSION 
+So it's two with one offer :)
