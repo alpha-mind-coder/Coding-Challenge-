@@ -1,0 +1,63 @@
+## SO I M GLAD THAT TODAY WE WERE ABLE TO ACHIEVE THE TARGET AS WE PLANNED
+We did 2 questions in coding which was just the revision of previous topics through recursion method
+
+1. Peak Index In A Mountain Array->852
+   class Solution {
+public:
+int ans=-1;
+    int binarysearch(vector<int>& arr,int s,int e){
+        if(arr.size()==1)return 0;
+        
+       if(s>e){
+            return ans;
+        } 
+        int mid = s+(e-s)/2;
+        if(arr[mid]<arr[mid+1]){
+        return binarysearch(arr,mid+1,e);
+        }
+
+        else if(arr[mid]>arr[mid+1]){
+            ans = mid;
+        return binarysearch(arr,s,mid-1);
+        }
+        return ans;
+    }
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int s=0,e=arr.size()-1;
+        return binarysearch(arr,s,e);
+          
+    }
+};  
+
+
+2. Find Minimum In Rotated Sorted Array->153
+    class Solution {
+public:
+int binarysearch(vector<int>& nums,int s,int e){
+    if(s==e) return e;
+    int mid=s+(e-s)/2;
+    if(nums[mid]>nums[e]){
+        return binarysearch(nums,mid+1,e);
+    }
+    else{
+       return binarysearch(nums,s,mid);
+    }
+    return e;
+
+}
+    int findMin(vector<int>& nums) {
+        int s=0,e=nums.size()-1;
+        return binarysearch(nums,s,e);
+    }
+};
+
+*Although these two were easy question but these are important to clear my recursion concept and to revise the previous things 
+
+I studied pointer and structures with pointer although i do have some doubts in structure with pointer yet we will cover that tommorrow
+Also did a little acadamic work .
+
+
+##TOMMOROWS PLAN
+->structure with pointer 
+->complete the revision of binary search through recursion also planned to do some new good questions of binaray search with both recursion and without it
+->operating system (paging ,segmentation)
