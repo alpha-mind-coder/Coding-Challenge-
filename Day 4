@@ -1,0 +1,57 @@
+So i was'nt able to put my yesterdays update but we covered our tasks as we planned
+1. Did 2-3 questions on same concept -> ROTATION OF AN ARRAY
+                                     -> HALF ROTATION OF AN ARRAY
+                                     -> BOOK ALLOCATION
+                                     -> PAINTER'S PARTITION
+                                     -> AGGRESIVE COW
+                                      
+
+## AGGRESIVE COW PROBLEM 
+
+bool isvalid(vector<int> &stalls, int k,int mid){
+    int lastpos=0;
+    int cowscount=1;
+    for(int i=1;i<stalls.size();i++){
+        
+        if(stalls[i]-stalls[lastpos]>=mid){
+           cowscount++;
+           lastpos=i;
+        }
+        if(cowscount>=k){
+            return true;
+        }
+    }
+    return false;
+}
+int aggressiveCows(vector<int> &stalls, int k)
+{   
+    sort(stalls.begin(),stalls.end());
+    int n=stalls.size()-1;
+    int ans=-1;
+    int s=1;
+    int e= stalls[n]-stalls[0];
+    while(s<=e){
+        int mid=s+(e-s)/2;
+        if(isvalid(stalls,k,mid)){
+           ans = mid;
+           s=mid+1;
+        }
+        else{
+            e=mid-1;
+        }
+    }
+   return ans; 
+}
+HERE I WAS BIT CONFUSED WHY WE NEED TO SORT THE ELEMENTS HERE BUT I REALISED THAT 
+
+:: IF SUPPOSE ARRAY IS [5,1,10,2] 
+    WE PLACED OUR COW AT 5 AND LET MINIMUM DISATAMCE BE 3 HERE
+    (5-1)=4 CAN PLACE SECOND COW AT POSTION 1
+    (10-1)=9 CAN PLACE THIRD COW HERE BUT SEE WE HAVE ALREADY PLACED OUR SECOND COW ON 5 SO ACTUAL DISTANCE IS (10-5)=5 NOT 9 ALTHOUGH 5 IS ALSO FEASABLE HERE BUT APPROACH IS WRONG FOR FURTHER USE
+=:THEREFORE,WE NEED TO SORT ARRAY HERE
+
+2. Did academic work 
+3. WAS NOT ABLE TO DIVE DEEP INT0 POINTERS WITH STRUCTURE YET
+
+
+
