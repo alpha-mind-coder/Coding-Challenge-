@@ -1,0 +1,64 @@
+Recently i stopped updating my github with DSA solving but i solved and understood many concepts between time
+
+->understood prefix sum clearly and also did an extra question (HARD LEVEL LEETCODE 2845 - count of interesting subarray)
+-> did merge sorted(88) in different ways :- 1. inplace - nums1 size is big have to sort nums1 and nums2 in nums1
+                                                              APPROACH(start from end of nums1 nums2 and nums1 of total size i.e after merging the total size of nums1)
+                                         2. if nums2[j] is smaller means it has to be added in nums1 just copy all the remaining nums1[i] and move it one step forward and then add nums2[j] to it
+                                                              remember to increase size of array nums1 as when elements get add it size inc.        
+->  MERGESORT -> its not just a sorting technique but best to understand the concept of recursion 
+                                       : - apply mergesort in recursion and then make a function to merge the broken parts which work just same as merging two arrays
+ CODE ::=
+
+   void merge(int *arr,int s,int e){
+    int mid=s+(e-s)/2;
+
+    int len1=mid-s+1;
+    int len2=e-mid;
+    int *first = new int[len1];
+    int *second = new int[len2];
+    int mainarridx=s;
+    for(int i=0;i<len1;i++){
+        first[i]=arr[mainarridx++];
+    }
+    mainarridx = mid+1;
+    for(int i=0;i<len2;i++){
+        second[i]=arr[mainarridx++];
+    }
+    int idx1=0,idx2=0;
+    int mainarridx = s;
+    while(idx1<len1 && idx2<len2){
+        if(first[idx1]<=second[idx2]){
+            arr[mainarridx++]=first[idx1++];
+        }
+        else{
+            arr[mainarridx++]=second[idx2++];
+           
+        }
+    }
+    while(idx1<len1){
+        arr[mainarridx++]=first[idx1++];
+    }
+
+    while(idx2<len2){
+        arr[mainarridx++]=second[idx2++];
+    }
+
+
+
+    delete []first;
+    delete []second;
+        
+}
+void mergesort(int *arr,int s,int e){
+    if(s>=e){
+     return;
+    }
+    int mid=s+(e-s)/2;
+    mergesort(arr,s,mid);
+    mergesort(arr,mid+1,e);
+    merge(arr,s,e);
+  
+}
+
+
+    This code can also be usedin this problem "COUNT NUMBER OF INVERSION"   just by adding this line in code  count+=(len1-idx1); and making alittle changes in code as per needed
