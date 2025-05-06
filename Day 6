@@ -12,8 +12,7 @@ int partition(int arr[], int s, int e) {
 
     for (int j = s+1; j <=e; j++) {
         if (arr[j] <= pivot) {
-           cnt++;
-        }
+            }
     }
    int pivotidx = cnt+s;
     swap(arr[pivotidx], arr[s]);  
@@ -55,3 +54,8 @@ int main() {
     }
     return 0;
 }
+
+
+ ### I also understood how   QUICK SORT   is better approach in cases of ARRAY and   MERGE SORT   is better approach for   LINKLIST 
+->In quicksort to position pivot element we have to access array again and again therefore it will be kept in cache memory as it has good locality of refrence 
+->In mergesort as we have to insert elements in between it would be easy to insert it in link list take only o(1) time and space complexity where as it takes o(n) in array
